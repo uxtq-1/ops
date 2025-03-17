@@ -1,0 +1,38 @@
+name: Auto Hash Update
+
+on:
+  push:
+    branches:
+      - main  # Run when pushing to main branch
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  hash_files:
+    name: Generate & Update File Hashes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate SHA-256 Hashes
+        run: |
+          # Generate SHA-256 hashes for all files (excluding .git/ and integrity.json)
+          find . -type f ! -path "./.git/*" ! -name "integrity.json" -exec sha256sum {} + | sort > integrity.txt
+
+          # Convert to JSON format
+          echo '{' > integrity.json
+          awk '{print "  \""$2"\": \""$1"\","}' integrity.txt | sed '$ s/,$//' >> integrity.json
+          echo '}' >> integrity.json
+          
+          # Display the JSON file
+          cat integrity.json
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add integrity.json
+          git commit -m "Updated integrity.json with latest file hashes" || echo "No changes to commit"
+          git push
