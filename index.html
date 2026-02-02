@@ -3,6 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="OPS Online Support delivers structured remote operations, call center, and IT support with compliant, secure-by-design governance."
+    />
+    <meta
+      name="keywords"
+      content="OPS Online Support, operations support, call center, IT support, compliance, NIST, OWASP, CISA, PCI DSS"
+    />
+    <meta name="author" content="OPS Online Support" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google-site-verification" content="REPLACE_WITH_SEARCH_CONSOLE_TOKEN" />
+    <link rel="canonical" href="https://ops.example.com/" />
+    <meta property="og:title" content="OPS Online Support · Build Plan" />
+    <meta
+      property="og:description"
+      content="Structured remote support with compliance-ready governance across operations, call center, and IT support."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ops.example.com/" />
+    <meta property="og:image" content="https://ops.example.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OPS Online Support · Build Plan" />
+    <meta
+      name="twitter:description"
+      content="Structured remote support with compliance-ready governance across operations, call center, and IT support."
+    />
+    <meta name="twitter:image" content="https://ops.example.com/og-image.png" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+    />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()" />
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
+    <meta http-equiv="Cross-Origin-Resource-Policy" content="same-origin" />
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp" />
     <title>OPS Online Support · Build Plan</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
@@ -255,6 +293,70 @@ Global UI (always available)
                 <li>What happens next: review → fit call → onboarding</li>
               </ol>
             </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>5) Security, compliance, and SEO governance</h2>
+          <p class="muted">
+            Baseline policies align with CSP/CORS enforcement, Search Console readiness, and
+            cross-framework governance (NIST CSF, OWASP ASVS, CISA Cyber Essentials, PCI DSS 4.0).
+          </p>
+          <div class="grid compliance-grid">
+            <div class="card">
+              <h3>Security headers + transport</h3>
+              <ul>
+                <li>CSP (default-src 'self', strict script/style policies)</li>
+                <li>HSTS (1-year, includeSubDomains, preload) via server headers</li>
+                <li>X-Frame-Options: DENY + frame-ancestors none</li>
+                <li>Referrer-Policy: strict-origin-when-cross-origin</li>
+                <li>Permissions-Policy: disable sensitive APIs</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>CORS + data boundary controls</h3>
+              <ul>
+                <li>Access-Control-Allow-Origin: explicit allowlist</li>
+                <li>Access-Control-Allow-Methods: GET, POST</li>
+                <li>Access-Control-Allow-Headers: Content-Type, Authorization</li>
+                <li>Cross-Origin-Opener/Embedder/Resource-Policy set to same-origin</li>
+                <li>Minimize third-party scripts to reduce data exfiltration risk</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>SEO + Search Console readiness</h3>
+              <ul>
+                <li>Canonical URLs, OpenGraph/Twitter meta tags</li>
+                <li>XML sitemap + robots.txt with clear crawl rules</li>
+                <li>Google Search Console verification tag</li>
+                <li>Core Web Vitals + accessibility targets (WCAG 2.1 AA)</li>
+                <li>Structured data planned via JSON-LD with CSP nonce</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>NIST / OWASP / CISA / PCI DSS alignment</h3>
+              <ul>
+                <li>Identify: asset inventory, vendor risk, data flow mapping</li>
+                <li>Protect: MFA, least privilege, encryption, patch cadence</li>
+                <li>Detect: logging + alerting (PCI DSS Req. 10)</li>
+                <li>Respond: incident runbooks + comms matrix</li>
+                <li>Recover: backups, continuity drills, MTTR tracking</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Operational security essentials</h3>
+              <ul>
+                <li>Vulnerability disclosure policy + <code>/.well-known/security.txt</code></li>
+                <li>Dependency scanning + patch SLAs (critical within 24–72h)</li>
+                <li>Logging, retention, and access reviews (PCI DSS Req. 10)</li>
+                <li>Privacy notice, consent, and cookie controls (GDPR/CCPA-ready)</li>
+                <li>Backup verification + recovery drills (quarterly)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="compliance-note">
+            <strong>OPS CyberSec Core:</strong> PCI DSS Requirements 3–11 mapped into Protect/Detect
+            phases, reinforced with CISA Cyber Essentials and OWASP top risk controls.
           </div>
         </section>
 

@@ -1,0 +1,7 @@
+Contact: mailto:security@ops.example.com
+Contact: https://ops.example.com/contact-us
+Expires: 2030-01-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://ops.example.com/.well-known/security.txt
+Policy: https://ops.example.com/security-policy
+Acknowledgments: https://ops.example.com/security-acknowledgments
