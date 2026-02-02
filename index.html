@@ -3,234 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>OPS Online Support</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --bg: #f5f6f8;
-        --surface: #ffffff;
-        --text: #0f172a;
-        --muted: #475569;
-        --border: #e2e8f0;
-        --primary: #0ea5e9;
-        --primary-dark: #0284c7;
-        --shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
-        --radius: 18px;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-        background: radial-gradient(circle at top, #fefefe 0%, var(--bg) 65%);
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .page {
-        padding: 48px 20px 120px;
-        max-width: 1100px;
-        margin: 0 auto;
-      }
-
-      header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 24px 0 40px;
-      }
-
-      .logo {
-        font-weight: 700;
-        letter-spacing: 0.04em;
-      }
-
-      nav ul {
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 18px;
-        padding: 0;
-        margin: 0;
-        font-size: 0.95rem;
-        color: var(--muted);
-      }
-
-      .hero {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 48px 36px;
-        box-shadow: var(--shadow);
-      }
-
-      .hero h1 {
-        font-size: clamp(2rem, 4vw, 2.8rem);
-        margin: 0 0 12px;
-      }
-
-      .hero p {
-        margin: 0 0 20px;
-        color: var(--muted);
-        max-width: 620px;
-      }
-
-      .cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 20px;
-        background: var(--primary);
-        color: white;
-        border-radius: 999px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        transition: transform 0.2s ease, background 0.2s ease;
-      }
-
-      .cta:hover {
-        background: var(--primary-dark);
-        transform: translateY(-1px);
-      }
-
-      .section {
-        margin-top: 36px;
-      }
-
-      .section h2 {
-        margin-bottom: 12px;
-        font-size: 1.4rem;
-      }
-
-      .grid {
-        display: grid;
-        gap: 16px;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      }
-
-      .card {
-        padding: 20px;
-        border-radius: 16px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-      }
-
-      .card p {
-        margin: 8px 0 0;
-        color: var(--muted);
-      }
-
-      .note {
-        color: var(--muted);
-        margin-top: 8px;
-      }
-
-      .fab-stack {
-        position: fixed;
-        right: 15px;
-        bottom: 25px;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        z-index: 10;
-      }
-
-      .fab {
-        border: none;
-        border-radius: 999px;
-        padding: 12px 18px;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
-        background: var(--surface);
-        color: var(--text);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .fab.chat {
-        background: var(--primary);
-        color: #fff;
-      }
-
-      .fab:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.25);
-      }
-
-      .chat-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(15, 23, 42, 0.45);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        z-index: 15;
-      }
-
-      .chat-overlay.active {
-        display: flex;
-      }
-
-      .chat-window {
-        background: #fff;
-        border-radius: 18px;
-        max-width: 720px;
-        width: 100%;
-        box-shadow: var(--shadow);
-        padding: 28px;
-      }
-
-      .chat-window h3 {
-        margin-top: 0;
-      }
-
-      .chat-window button {
-        margin-top: 16px;
-        border: none;
-        background: var(--primary);
-        color: #fff;
-        padding: 10px 16px;
-        border-radius: 10px;
-        cursor: pointer;
-      }
-
-      footer {
-        margin-top: 48px;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 640px) {
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        nav ul {
-          gap: 10px;
-        }
-
-        .hero {
-          padding: 32px 24px;
-        }
-      }
-    </style>
+    <title>OPS Online Support · Build Plan</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="page">
-      <header>
+    <header>
+      <div class="page header-inner">
         <div class="logo">OPS Online Support</div>
         <nav>
           <ul>
@@ -242,93 +20,276 @@
             <li><a href="/us">Us</a></li>
           </ul>
         </nav>
-      </header>
+        <div class="header-actions">
+          <span class="pill">Theme toggle</span>
+          <span class="pill">Search</span>
+        </div>
+      </div>
+    </header>
 
-      <main class="hero">
-        <h1>Site map & always-available UI</h1>
-        <p>
-          This landing page documents the OPS Online Support structure: pages, navigation,
-          and the floating action buttons that stay available on every route.
+    <main class="page">
+      <section class="shell">
+        <div class="pill">Build plan</div>
+        <h1>OPS Online Support site structure (exact build order)</h1>
+        <p class="muted">
+          This page captures the full sitemap, layout behaviors, component map, and the
+          page-by-page wire outline exactly as specified.
         </p>
-        <a class="cta" href="/contact-us">Contact Us</a>
 
         <section class="section">
-          <h2>Routes</h2>
+          <h2>1) Sitemap</h2>
+          <pre class="card"><code>/
+  Home (Landing)
+
+  /operations
+  /call-center
+  /it-support
+  /professionals
+
+  /us
+  /contact-us
+  /join-us
+
+Global UI (always available)
+  FAB: Contact Us  → /contact-us
+  FAB: Join Us     → /join-us
+  FAB: Chat        → opens pop-up to Chattia</code></pre>
+        </section>
+
+        <section class="section">
+          <h2>2) Global layout + behaviors</h2>
           <div class="grid">
-            <div class="card"><strong>/</strong><p>Home (Landing)</p></div>
-            <div class="card"><strong>/operations</strong><p>Operations</p></div>
-            <div class="card"><strong>/call-center</strong><p>Call Center</p></div>
-            <div class="card"><strong>/it-support</strong><p>IT Support</p></div>
-            <div class="card"><strong>/professionals</strong><p>Professionals</p></div>
-            <div class="card"><strong>/us</strong><p>Us</p></div>
-            <div class="card"><strong>/contact-us</strong><p>Contact Us</p></div>
-            <div class="card"><strong>/join-us</strong><p>Join Us</p></div>
+            <div class="card">
+              <h3>2.1 Header (premium + minimal)</h3>
+              <ul>
+                <li>Left: logo</li>
+                <li>Center nav: Home, Operations, Call Center, IT Support, Professionals, Us</li>
+                <li>Right (optional): theme toggle + search icon</li>
+                <li>No Contact/Join/Chat in header (FAB-only)</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>2.2 Footer (simple, high-confidence)</h3>
+              <ul>
+                <li>Services: Operations / Call Center / IT Support / Professionals</li>
+                <li>Company: Us / Contact Us / Join Us</li>
+                <li>Help: Chat with Chattia (opens pop-up)</li>
+                <li>Bottom: “Remote support” + “We focus on organization, performance, and consistency.”</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>2.3 FABs (exact placement + behavior)</h3>
+              <ul>
+                <li>Position: <code>bottom: 25px; right: 15px;</code></li>
+                <li>Stack: vertical, 12–14px gap</li>
+                <li>Contact → <code>/contact-us</code></li>
+                <li>Join → <code>/join-us</code></li>
+                <li>Chat → pop-up to Chattia</li>
+                <li>Small screens: collapse into “+” toggle</li>
+                <li>Hover/focus labels; keyboard + screen-reader ready</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>2.4 Chat (pop-up window)</h3>
+              <ul>
+                <li><code>window.open(CHATTIA_URL, "ChattiaChat", "width=420,height=720,noopener,noreferrer")</code></li>
+                <li>If blocked: toast with fallback “Open in new tab”</li>
+                <li>Brand rule: “Chat with Chattia (routing + questions)”</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>2.5 Premium rules</h3>
+              <ul>
+                <li>Max 6 sections per page</li>
+                <li>One primary CTA + one secondary link</li>
+                <li>Motion only for meaning</li>
+                <li>Single premium signature element (3D or glow grid)</li>
+              </ul>
+            </div>
           </div>
-          <p class="note">
-            The sitemap above keeps the primary service pages grouped together with clear
-            access to the supporting company pages.
+        </section>
+
+        <section class="section">
+          <h2>3) UI components: keep / rebuild / new</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Keep</h3>
+              <ul>
+                <li><code>components/Header.tsx</code></li>
+                <li><code>components/Footer.tsx</code></li>
+                <li><code>components/FABs.tsx</code> (update to 3 FABs + placement)</li>
+                <li><code>components/MobileNav.tsx</code></li>
+                <li><code>components/modals/ModalWrapper.tsx</code></li>
+                <li>Current spacing/layout rhythm</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Rebuild / repurpose</h3>
+              <ul>
+                <li><code>components/Hero.tsx</code> → PageHero</li>
+                <li><code>components/ServiceCardsGrid.tsx</code> (rebuild for 4 pillars)</li>
+                <li><code>components/ServicePage.tsx</code> → 4 dedicated pages</li>
+                <li><code>components/modals/ChatbotModal.tsx</code> → pop-up logic</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>New</h3>
+              <ul>
+                <li>Section</li>
+                <li>CapabilityGrid</li>
+                <li>StepsStrip</li>
+                <li>DeliverablesList</li>
+                <li>CTABand</li>
+                <li>TrustStrip</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Home-only 3D (TSX)</h3>
+              <ul>
+                <li>Reuse <code>components/Hero3D.tsx</code></li>
+                <li>Lazy-loaded + fallback</li>
+                <li>Optional toggle for low-power devices</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>4) Page-by-page wire outline</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>4.1 Home /</h3>
+              <ol>
+                <li>
+                  Hero: “OPS Online Support — structured remote support for teams that need consistency.”
+                  <ul>
+                    <li>Subline: Operations, customer handling, IT continuity, professional support.</li>
+                    <li>CTA: Explore Services → pillars</li>
+                    <li>Secondary: How we work → /us</li>
+                  </ul>
+                </li>
+                <li>
+                  Pillars (4 cards)
+                  <ul>
+                    <li>Operations: SOPs & routines, Coordination, Workflow clarity → /operations</li>
+                    <li>Call Center: Intake & triage, Follow-ups, Scripts → /call-center</li>
+                    <li>IT Support: Setup guidance, Troubleshooting, Secure practices → /it-support</li>
+                    <li>Professionals: Admin support, Coordination, Documentation → /professionals</li>
+                  </ul>
+                </li>
+                <li>How it works: Discover → Standardize → Support + CTA to /us</li>
+                <li>What we improve: organization, consistency, documentation, follow-through + CTA to /contact-us</li>
+                <li>Governance & Security: minimal data, clear boundaries, documentation-first + CTA to /us</li>
+                <li>Final CTA band: “Tell us what you need supported…” → /contact-us</li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>4.2 Operations /operations</h3>
+              <ol>
+                <li>PageHero: “Operations support that stays organized under pressure.” + CTA /contact-us</li>
+                <li>Capabilities grid: coordination, SOPs, scheduling, vendor/admin, summaries, quality checks</li>
+                <li>Common scenarios: fall-through, no routines, needs clarity, docs used</li>
+                <li>Deliverables: SOP pack, routine template, operating notes, escalation rules</li>
+                <li>Working rhythm: cadence, channels, boundaries</li>
+                <li>CTA band: “Describe your workflow…” → /contact-us</li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>4.3 Call Center /call-center</h3>
+              <ol>
+                <li>PageHero: “Customer handling built on clarity and consistency.” + CTA /contact-us</li>
+                <li>Capabilities: intake, follow-ups, escalation, scripts, quality, multi-channel</li>
+                <li>Standards system: script discipline, escalation boundaries, documentation-first</li>
+                <li>Typical outcomes: cleaner handoffs, fewer missed follow-ups, consistent responses</li>
+                <li>What you receive: scripts, follow-up rules, weekly notes</li>
+                <li>CTA band: “Want consistent customer handling…” → /contact-us</li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>4.4 IT Support /it-support</h3>
+              <ol>
+                <li>PageHero: “IT support that keeps work moving.” + CTA /contact-us</li>
+                <li>Capabilities: setup, access hygiene, troubleshooting, device support, backups, docs</li>
+                <li>Access handling: minimum access, documented steps, avoid sensitive collection</li>
+                <li>Deliverables: setup checklists, playbooks, standard docs</li>
+                <li>Best-fit: growing team, recurring issues, remote continuity</li>
+                <li>CTA band: “Tell us your stack…” → /contact-us</li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>4.5 Professionals /professionals</h3>
+              <ol>
+                <li>PageHero: “Professional support aligned to your workflow.” CTA /contact-us, link /join-us</li>
+                <li>Roles: admin, operations coordination, customer support, documentation, project coordination</li>
+                <li>Matching: scope → fit → start, communication standards, clear boundaries</li>
+                <li>Standards: professional tone, documentation, security awareness, consistency</li>
+                <li>CTA band: Contact Us + Join Us</li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>4.6 Us /us</h3>
+              <ol>
+                <li>PageHero: “Built on structure, clarity, and disciplined execution.” + CTA /contact-us</li>
+                <li>Operating principles: documentation-first, routines, boundaries, minimal data, security habits</li>
+                <li>How we work: Discover → Standardize → Support</li>
+                <li>Governance: reduce access, disciplined handling, documented processes</li>
+                <li>Who it’s for: SMBs, founders, teams</li>
+                <li>CTA band: “Tell us what you’re running…” → /contact-us</li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>4.7 Contact Us /contact-us</h3>
+              <ol>
+                <li>PageHero: “Contact OPS Online Support” + CTA scroll to form</li>
+                <li>Form: name, email, company optional, message, preferred method</li>
+                <li>What to include: area, team size, improvement goals</li>
+                <li>Chat option: Open Chat pop-up</li>
+              </ol>
+            </div>
+            <div class="card">
+              <h3>4.8 Join Us /join-us</h3>
+              <ol>
+                <li>PageHero: “Join OPS Online Support” + CTA scroll to form</li>
+                <li>Who we’re looking for: communicators, documentation, follow-through, tone, security habits</li>
+                <li>Application form: role, experience, languages, availability, timezone, portfolio</li>
+                <li>What happens next: review → fit call → onboarding</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <div class="section">
+          <a class="cta" href="/contact-us">Contact Us</a>
+          <p class="footer">
+            Remote support with structure. We focus on organization, performance, and consistency.
           </p>
-        </section>
-
-        <section class="section">
-          <h2>Always-available UI</h2>
-          <div class="grid">
-            <div class="card">
-              <strong>Chat</strong>
-              <p>Floating action button opens a pop-up window to Chattia.</p>
-            </div>
-            <div class="card">
-              <strong>FAB: Contact Us</strong>
-              <p>Routes directly to <code>/contact-us</code>.</p>
-            </div>
-            <div class="card">
-              <strong>FAB: Join Us</strong>
-              <p>Routes directly to <code>/join-us</code>.</p>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <p>OPS Online Support · Premium support structure · Always-on communication</p>
-      </footer>
-    </div>
+        </div>
+      </section>
+    </main>
 
     <div class="fab-stack" aria-label="Quick actions">
-      <button class="fab" onclick="location.href='/contact-us'">Contact Us</button>
-      <button class="fab" onclick="location.href='/join-us'">Join Us</button>
-      <button class="fab chat" id="chatFab">Chat</button>
-    </div>
-
-    <div class="chat-overlay" id="chatOverlay" role="dialog" aria-modal="true" aria-label="Chat window">
-      <div class="chat-window">
-        <h3>Chat with Chattia</h3>
-        <p>
-          This pop-up represents the chat experience. In production it would point to the
-          Chattia URL configured for your environment.
-        </p>
-        <button type="button" id="closeChat">Close</button>
+      <button class="fab-toggle" id="fabToggle" aria-expanded="false" aria-label="Toggle quick actions">+</button>
+      <div class="fab-group" id="fabGroup">
+        <button class="fab" onclick="location.href='/contact-us'" aria-label="Contact us">
+          Contact Us
+          <span class="fab-label">Contact Us</span>
+        </button>
+        <button class="fab" onclick="location.href='/join-us'" aria-label="Join us">
+          Join Us
+          <span class="fab-label">Join Us</span>
+        </button>
+        <button class="fab chat" id="chatFab" aria-label="Chat with Chattia">
+          Chat
+          <span class="fab-label">Chat with Chattia</span>
+        </button>
       </div>
     </div>
 
-    <script>
-      const chatFab = document.getElementById("chatFab");
-      const chatOverlay = document.getElementById("chatOverlay");
-      const closeChat = document.getElementById("closeChat");
+    <div class="toast" id="popupToast" role="status" aria-live="polite">
+      <div>Pop-up blocked. Click to open chat in a new tab.</div>
+      <button type="button" id="openChatTab">Open Chat</button>
+    </div>
 
-      chatFab.addEventListener("click", () => {
-        chatOverlay.classList.add("active");
-      });
-
-      closeChat.addEventListener("click", () => {
-        chatOverlay.classList.remove("active");
-      });
-
-      chatOverlay.addEventListener("click", (event) => {
-        if (event.target === chatOverlay) {
-          chatOverlay.classList.remove("active");
-        }
-      });
-    </script>
+    <script src="js/app.js"></script>
   </body>
 </html>
