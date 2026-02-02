@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ops.example.com/sitemap.xml
