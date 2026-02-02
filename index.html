@@ -258,6 +258,235 @@ Global UI (always available)
           </div>
         </section>
 
+        <section class="section">
+          <h2>5) Section system render contract</h2>
+          <p class="muted">Switch on <code>kind</code> and render exactly as specified below.</p>
+          <div class="grid">
+            <div class="card">
+              <h3>5.1 Page render contract (global)</h3>
+              <pre><code>Page shape
+{
+  seo: { title, description },
+  hero: { headline, subline, primaryCta, secondaryLink?, visual? },
+  sections: Array&lt;SectionSpec&gt;
+}
+
+Render order
+1) applySEO(page.seo)
+2) &lt;PageHero hero={page.hero} /&gt;
+3) page.sections.map(renderSection)</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.2 CTA contract (shared)</h3>
+              <pre><code>Route CTA
+{ label: "Contact Us", href: "/contact-us" }
+Behavior: navigate to href
+
+Scroll CTA
+{ label: "Explore Services", action: "scrollTo", targetId: "pillars" }
+Behavior: smooth scroll to id=targetId
+
+Action CTA
+{ label: "Open Chat", action: "openChatPopup" }
+Behavior: open CHAT.url pop-up with CHAT.popup.features (fallback if blocked)
+
+Rule: CTAs must never claim outcomes.</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.3 pillars</h3>
+              <pre><code>Props
+{ kind: "pillars", id, title, items: [PILLARS...] }
+
+Item shape
+{ id, title, oneLine, bullets: [string], cta: { label, href } }
+
+UI output
+- Section title
+- 4-card grid (responsive)
+- Card: title, one-line, 3 bullets, CTA (route)
+
+Premium
+- Equal heights
+- Hover-lift + subtle glow border
+- Entire card clickable</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.4 steps</h3>
+              <pre><code>Props
+{ kind: "steps", title, steps: [{ title, body }], cta? }
+
+UI output
+- Horizontal strip (desktop), stacked (mobile)
+- Step numbers (01, 02, 03) or minimal icons
+- Optional CTA below
+
+Premium
+- Subtle connecting line (desktop)
+- No heavy illustrations</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.5 bullets</h3>
+              <pre><code>Props
+{ kind: "bullets", title, bullets: [string], cta? }
+
+UI output
+- Section title
+- Bullet list (max 6)
+- Optional single CTA
+
+Premium
+- Short bullets (1 line)
+- Minimal icons optional</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.6 trust (quiet trust)</h3>
+              <pre><code>Props
+{ kind: "trust", title, bullets: [string], cta? }
+
+UI output
+- Same as bullets
+- Softer glass panel
+- Shield/check micro-icons optional
+- Smaller headline style
+
+Rule: no compliance claims, no "certified", no numbers.</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.7 capabilityGrid</h3>
+              <pre><code>Props
+{ kind: "capabilityGrid", title, items: [string] }
+
+UI output
+- 2–3 column grid (responsive)
+- Each item as capability pill card (icon optional, short text)
+
+Premium
+- 3–6 words per item
+- Avoid paragraphs</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.8 cards</h3>
+              <pre><code>Props
+{ kind: "cards", title, items: [{ title, body }] }
+
+UI output
+- Card grid of short scenario cards
+- Title + 1–2 line body
+
+Premium
+- Keep bodies short
+- Consistent heights
+- No CTA buttons here</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.9 deliverables</h3>
+              <pre><code>Props
+{ kind: "deliverables", title, items: [string] }
+
+UI output
+- List with check icons or compact tiles
+- No downloads
+
+Premium
+- Grounded, tangible artifacts
+- No promises</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.10 splitLane</h3>
+              <pre><code>Props
+{ kind: "splitLane", title, left, right }
+
+UI output
+- Two side-by-side panels (stack on mobile)
+- Left: Need support → Contact
+- Right: Want to join → Join
+
+Premium
+- Same height panels
+- One primary emphasis (left slightly brighter)</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.11 form</h3>
+              <pre><code>Props
+{ kind: "form", id, title, fields: [{ name, label, type, required, ... }] }
+
+Field types
+text, email, url, textarea (rows), select (options[])
+
+UI output
+- Section title
+- Glass panel form card
+- Labels + required indicators
+- Submit button
+
+Premium
+- Inline validation messages (gentle)
+- Loading state on submit
+- Success state replaces button row
+
+Security
+- Add spam protection later (Turnstile etc.)</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.12 ctaBand</h3>
+              <pre><code>Props
+{ kind: "ctaBand", headline, primaryCta, secondaryCta? }
+
+UI output
+- Full-width band (contained max width)
+- Headline + primary button
+- Optional secondary link/button
+
+Premium
+- Conversion closer
+- 1 sentence + 1 button</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.13 PageHero contract</h3>
+              <pre><code>Hero shape
+{ headline, subline, primaryCta, secondaryLink?, visual? }
+
+UI output
+- Large headline
+- Subline (max ~2 lines)
+- CTA row (primary + optional secondary link)
+- Optional visual (desktop right / mobile below)
+
+3D rule
+- Render 3D only if visual.enabled === true and device is suitable
+- Otherwise render fallback</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.14 Global renderer behaviors</h3>
+              <pre><code>Section spacing
+- Top/bottom: 48–64 desktop, 32–40 mobile
+- Consistent max width (1100–1200px)
+
+Card rule
+- Shared radius, border, hover, typography
+
+Motion rule
+- On-scroll reveal for sections only
+- Hover-lift on clickable cards + CTAs
+- Respect reduced motion</code></pre>
+            </div>
+            <div class="card">
+              <h3>5.15 RenderSection switch list</h3>
+              <pre><code>Only accept these kinds:
+- pillars
+- steps
+- bullets
+- trust
+- capabilityGrid
+- cards
+- deliverables
+- splitLane
+- form
+- ctaBand</code></pre>
+            </div>
+          </div>
+        </section>
+
         <div class="section">
           <a class="cta" href="/contact-us">Contact Us</a>
           <p class="footer">
