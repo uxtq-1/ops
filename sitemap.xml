@@ -6,37 +6,37 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.opsonlinesupport.com/operations</loc>
+    <loc>https://www.opsonlinesupport.com/operations/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.opsonlinesupport.com/call-center</loc>
+    <loc>https://www.opsonlinesupport.com/call-center/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.opsonlinesupport.com/it-support</loc>
+    <loc>https://www.opsonlinesupport.com/it-support/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.opsonlinesupport.com/professionals</loc>
+    <loc>https://www.opsonlinesupport.com/professionals/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.opsonlinesupport.com/us</loc>
+    <loc>https://www.opsonlinesupport.com/us/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.opsonlinesupport.com/contact-us</loc>
+    <loc>https://www.opsonlinesupport.com/contact-us/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.opsonlinesupport.com/join-us</loc>
+    <loc>https://www.opsonlinesupport.com/join-us/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

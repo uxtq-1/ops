@@ -191,6 +191,19 @@ h3 {
   font-size: 0.95rem;
 }
 
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.cta.secondary {
+  background: transparent;
+  color: var(--primary-dark);
+  border: 1px solid rgba(2, 132, 199, 0.5);
+}
+
 .footer {
   margin-top: 36px;
   color: var(--muted);
