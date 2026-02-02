@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ops.example.com/sitemap.xml
+Sitemap: https://www.opsonlinesupport.com/sitemap.xml
