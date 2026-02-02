@@ -1,1 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OPS Online Support</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f6f8;
+        --surface: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --border: #e2e8f0;
+        --primary: #0ea5e9;
+        --primary-dark: #0284c7;
+        --shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
+        --radius: 18px;
+      }
 
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        background: radial-gradient(circle at top, #fefefe 0%, var(--bg) 65%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        padding: 48px 20px 120px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 24px 0 40px;
+      }
+
+      .logo {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        padding: 0;
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .hero {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 48px 36px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin: 0 0 12px;
+      }
+
+      .hero p {
+        margin: 0 0 20px;
+        color: var(--muted);
+        max-width: 620px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        background: var(--primary);
+        color: white;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .cta:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+      }
+
+      .section {
+        margin-top: 36px;
+      }
+
+      .section h2 {
+        margin-bottom: 12px;
+        font-size: 1.4rem;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .card {
+        padding: 20px;
+        border-radius: 16px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+      }
+
+      .card p {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+
+      .note {
+        color: var(--muted);
+        margin-top: 8px;
+      }
+
+      .fab-stack {
+        position: fixed;
+        right: 15px;
+        bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        z-index: 10;
+      }
+
+      .fab {
+        border: none;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+        background: var(--surface);
+        color: var(--text);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .fab.chat {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .fab:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.25);
+      }
+
+      .chat-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 15;
+      }
+
+      .chat-overlay.active {
+        display: flex;
+      }
+
+      .chat-window {
+        background: #fff;
+        border-radius: 18px;
+        max-width: 720px;
+        width: 100%;
+        box-shadow: var(--shadow);
+        padding: 28px;
+      }
+
+      .chat-window h3 {
+        margin-top: 0;
+      }
+
+      .chat-window button {
+        margin-top: 16px;
+        border: none;
+        background: var(--primary);
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      footer {
+        margin-top: 48px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 640px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav ul {
+          gap: 10px;
+        }
+
+        .hero {
+          padding: 32px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="logo">OPS Online Support</div>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/operations">Operations</a></li>
+            <li><a href="/call-center">Call Center</a></li>
+            <li><a href="/it-support">IT Support</a></li>
+            <li><a href="/professionals">Professionals</a></li>
+            <li><a href="/us">Us</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="hero">
+        <h1>Site map & always-available UI</h1>
+        <p>
+          This landing page documents the OPS Online Support structure: pages, navigation,
+          and the floating action buttons that stay available on every route.
+        </p>
+        <a class="cta" href="/contact-us">Contact Us</a>
+
+        <section class="section">
+          <h2>Routes</h2>
+          <div class="grid">
+            <div class="card"><strong>/</strong><p>Home (Landing)</p></div>
+            <div class="card"><strong>/operations</strong><p>Operations</p></div>
+            <div class="card"><strong>/call-center</strong><p>Call Center</p></div>
+            <div class="card"><strong>/it-support</strong><p>IT Support</p></div>
+            <div class="card"><strong>/professionals</strong><p>Professionals</p></div>
+            <div class="card"><strong>/us</strong><p>Us</p></div>
+            <div class="card"><strong>/contact-us</strong><p>Contact Us</p></div>
+            <div class="card"><strong>/join-us</strong><p>Join Us</p></div>
+          </div>
+          <p class="note">
+            The sitemap above keeps the primary service pages grouped together with clear
+            access to the supporting company pages.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>Always-available UI</h2>
+          <div class="grid">
+            <div class="card">
+              <strong>Chat</strong>
+              <p>Floating action button opens a pop-up window to Chattia.</p>
+            </div>
+            <div class="card">
+              <strong>FAB: Contact Us</strong>
+              <p>Routes directly to <code>/contact-us</code>.</p>
+            </div>
+            <div class="card">
+              <strong>FAB: Join Us</strong>
+              <p>Routes directly to <code>/join-us</code>.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>OPS Online Support · Premium support structure · Always-on communication</p>
+      </footer>
+    </div>
+
+    <div class="fab-stack" aria-label="Quick actions">
+      <button class="fab" onclick="location.href='/contact-us'">Contact Us</button>
+      <button class="fab" onclick="location.href='/join-us'">Join Us</button>
+      <button class="fab chat" id="chatFab">Chat</button>
+    </div>
+
+    <div class="chat-overlay" id="chatOverlay" role="dialog" aria-modal="true" aria-label="Chat window">
+      <div class="chat-window">
+        <h3>Chat with Chattia</h3>
+        <p>
+          This pop-up represents the chat experience. In production it would point to the
+          Chattia URL configured for your environment.
+        </p>
+        <button type="button" id="closeChat">Close</button>
+      </div>
+    </div>
+
+    <script>
+      const chatFab = document.getElementById("chatFab");
+      const chatOverlay = document.getElementById("chatOverlay");
+      const closeChat = document.getElementById("closeChat");
+
+      chatFab.addEventListener("click", () => {
+        chatOverlay.classList.add("active");
+      });
+
+      closeChat.addEventListener("click", () => {
+        chatOverlay.classList.remove("active");
+      });
+
+      chatOverlay.addEventListener("click", (event) => {
+        if (event.target === chatOverlay) {
+          chatOverlay.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
